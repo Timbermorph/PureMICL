@@ -82,6 +82,7 @@ bash run_infer.sh infer # option: lora_infer or finetune
 
 > ⚠️ Only one mode can be used at a time.  
 > ⚠️ Before running, **make sure to manually set the following variables inside `run_main.sh`**:
+> We include a custom **modeling_qwen2_vl.py** in the project root. If you want to use its custom model definition instead of the default provided by transformers
 
 ```bash
 MODEL_PATH=/absolute/path/to/your/base_model
