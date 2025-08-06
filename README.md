@@ -71,7 +71,7 @@ dataset/
 You can run training or inference using the **unified shell script**, for example **infer**:
 
 ```bash
-bash run_main.sh infer # option: **lora_infer** or **finetune**
+bash run_main.sh infer # option: lora_infer or finetune
 ```
 
 | Mode         | Description                                 |
