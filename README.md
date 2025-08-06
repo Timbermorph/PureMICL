@@ -22,17 +22,10 @@ source unsloth_venv/bin/activate
 ```
 ---
 
-### 3️⃣ Install PyTorch (CUDA 12.1)
+### 3️⃣ Install all dependencies
 
 ```bash
 pip install --upgrade pip
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-```
----
-
-### 4️⃣ Install all dependencies
-
-```bash
 pip install -r pip_requirements.txt
 ```
 ---
@@ -85,7 +78,7 @@ bash run_main.sh [infer|lora_infer|finetune]
 |--------------|---------------------------------------------|
 | `finetune`   | Finetune the model on your training dataset |
 | `infer`      | Run inference with base model               |
-| `lora_infer` | Run inference with LoRA fine-tuned model    |
+| `lora_infer` | Run inference with fine-tuned model    |
 
 > ⚠️ Only one mode can be used at a time.  
 > ⚠️ Before running, **make sure to manually set the following variables inside `run_main.sh`**:
@@ -125,8 +118,7 @@ python check_accuracy.py ./results/your_result_file.json
 ├── modeling_qwen2_vl.py
 ├── pip_requirements.txt
 ├── qwen2_finetune_new_model.py
-├── run_main.sh                  # Entry script for training/inference
-├── run_infer.sh (optional alias)
+├── run_infer.sh                  # Entry script for training/inference
 ├── samples_of_training_data.json
 └── readme.txt                   # (This README content)
 ```
