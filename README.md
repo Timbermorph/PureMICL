@@ -14,7 +14,7 @@ cd your_repo
 ```
 ---
 
-### 2️⃣ Create virtual environment & activate
+### 2️⃣ Create virtual environment & activate(we recommend using python 3.11)
 
 ```bash
 python3.11 -m venv unsloth_venv
@@ -51,7 +51,11 @@ If you use a different GPU or CUDA version, refer to [Unsloth install guide](htt
 
 ## 📦 Dataset Preparation
 
-Please download the required datasets from our data release and place them under the `dataset/` folder. For example:
+```bash
+git clone https://huggingface.co/datasets/ShuoChen99/TrueMICL
+```
+
+Please download the required datasets from our data release and rename them as `dataset/` folder. For example:
 
 ```bash
 dataset/
