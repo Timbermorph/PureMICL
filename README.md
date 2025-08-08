@@ -77,7 +77,7 @@ This project provides a unified shell script run_main.sh for both training and i
 For example, to run base model inference:
 
 ```bash
-./run_main.sh infer
+./run_infer.sh infer
 ```
 
 | Mode            | Description |
