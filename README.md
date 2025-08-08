@@ -72,25 +72,40 @@ dataset/
 
 ## 🧪 Running the Code
 
-You can run training or inference using the **unified shell script**, for example **infer**:
+Running Training and Inference
+This project provides a unified shell script run_main.sh for both training and inference.
+For example, to run base model inference:
 
 ```bash
-./run_main.sh finetune
+./run_main.sh infer
 ```
 
-| Mode         | Description                                 |
-|--------------|---------------------------------------------|
-| `finetune`   | Finetune the model on your training dataset |
-| `infer`      | Run inference with base model               |
-| `lora_infer` | Run inference with fine-tuned model    |
+Available Modes
+Mode	Description
+lora_finetune	Fine-tune with LoRA. Default freeze_ratio=0.25 (can be changed at the top of run_main.sh). Only part of the parameters are trainable.
+dara_finetune	DARA training mode (appears as if LoRA parameters are frozen, but in fact trains all parameters — used for presentation or quick experiments).
+infer	Run inference with the base model.
+lora_infer	Run inference with a LoRA fine-tuned model.
+dara_infer	Run inference with a DARA model.
+
+**About the qwen2_vl_replacement Folder**
+If a folder named qwen2_vl_replacement/ exists in the same directory as run_main.sh,
+it will be automatically added to the highest priority in PYTHONPATH during script execution.
+
+This means:
+
+Files inside qwen2_vl_replacement/ will override the corresponding modules from the original transformers package.
+
+Any files not present in qwen2_vl_replacement/ will still be loaded from the original package.
+
+This mechanism allows you to replace or debug specific files without touching the original site-packages code — ideal for quick iteration and experiments.
 
 > ⚠️ Only one mode can be used at a time.  
 > ⚠️ Before running, **make sure to manually set the following variables inside `run_main.sh`**:
-> We include a custom **modeling_qwen2_vl.py** in the project root. If you want to use its custom model definition instead of the default provided by transformers
 
 ```bash
 MODEL_PATH=/absolute/path/to/your/base_model
-LORA_MODEL_PATH=./ckpt/your_lora_checkpoint  # if using lora_infer mode
+LORA_MODEL_PATH=./ckpt/your_checkpoint  # if using lora/dara_infer mode
 ```
 
 ---
@@ -117,7 +132,7 @@ python check_accuracy.py ./results/your_result_file.json
 │   ├── operator_induction/
 │   ├── sudoku/
 │   └── ...
-├── qwen2_vl_for_replacement/    # Optional model override modules
+├── qwen2_vl_replacement/    # Optional model override modules
 ├── check_accuracy.py
 ├── data_processing.py
 ├── modeling_qwen2_vl.py
