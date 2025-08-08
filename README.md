@@ -14,7 +14,7 @@ cd your_repo
 ```
 ---
 
-### 2️⃣ Create virtual environment & activate(we recommend using python 3.11)
+### 2️⃣ Create virtual environment & activate (we recommend using python 3.11)
 
 ```bash
 python3.11 -m venv unsloth_venv
@@ -27,6 +27,7 @@ source unsloth_venv/bin/activate
 ```bash
 pip install --upgrade pip
 pip install -r pip_requirements.txt
+pip install --no-deps 'unsloth[cu121-ampere-torch250] @ git+https://github.com/unslothai/unsloth.git'
 ```
 ---
 
