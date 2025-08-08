@@ -27,7 +27,6 @@ source unsloth_venv/bin/activate
 ```bash
 pip install --upgrade pip
 pip install -r pip_requirements.txt
-pip install --no-deps 'unsloth[cu121-ampere-torch250] @ git+https://github.com/unslothai/unsloth.git'
 ```
 ---
 
@@ -40,10 +39,10 @@ Unsloth must be installed with the correct tag depending on your hardware and en
 - CUDA: 12.1
 - PyTorch: 2.5.1
 
-Use the following in `pip_requirements.txt`:
+Use the following:
 
 ```txt
-unsloth[cu121-ampere-torch250] @ git+https://github.com/unslothai/unsloth.git
+pip install --no-deps 'unsloth[cu121-ampere-torch250] @ git+https://github.com/unslothai/unsloth.git'
 ```
 
 If you use a different GPU or CUDA version, refer to [Unsloth install guide](https://github.com/unslothai/unsloth) and adjust accordingly.
