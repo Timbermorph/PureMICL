@@ -80,15 +80,17 @@ For example, to run base model inference:
 ./run_main.sh infer
 ```
 
-Available Modes
-Mode	Description
-lora_finetune	Fine-tune with LoRA. Default freeze_ratio=0.25 (can be changed at the top of run_main.sh). Only part of the parameters are trainable.
-dara_finetune	DARA training mode (appears as if LoRA parameters are frozen, but in fact trains all parameters — used for presentation or quick experiments).
-infer	Run inference with the base model.
-lora_infer	Run inference with a LoRA fine-tuned model.
-dara_infer	Run inference with a DARA model.
+| Mode            | Description |
+|-----------------|-------------|
+| `infer`         | Run inference with the base model. |
+| `lora_infer`    | Run inference with a LoRA fine-tuned model. |
+| `dara_infer`    | Run inference with a DARA model. |
+| `lora_finetune` | Fine-tune with LoRA.Only part of the parameters are trainable. |
+| `dara_finetune` | **DARA** training mode. |
+
 
 **About the qwen2_vl_replacement Folder**
+
 If a folder named qwen2_vl_replacement/ exists in the same directory as run_main.sh,
 it will be automatically added to the highest priority in PYTHONPATH during script execution.
 
